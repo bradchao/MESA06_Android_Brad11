@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         textView.setText("");
         // SELECT * FROM cust ORDER BY cname DESC
         // db.execSQL("SELECT * FROM cust");
-        Cursor cursor = db.query("cust",null,null,null,null,null,"cname DESC, birthday DESC");
+        Cursor cursor = db.query("cust",null,"id > ?",new String[]{"3"},
+                null,null,"cname DESC, birthday DESC");
 
         while (cursor.moveToNext()){
             String birthday = cursor.getString(cursor.getColumnIndex("birthday"));
