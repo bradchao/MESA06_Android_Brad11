@@ -34,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
         query(null);
     }
 
+    public void delete(View v){
+        // DELETE FROM cust WHERE id = 3 AND cname = 'Brad'
+        db.delete("cust","id = ? AND cname = ?", new String[]{"3","Brad"});
+        query(null);
+    }
     public void query(View v){
         textView.setText("");
         // SELECT * FROM cust
