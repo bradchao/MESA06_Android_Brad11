@@ -24,9 +24,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void query(View v){
+        textView.setText("");
         // SELECT * FROM cust
         // db.execSQL("SELECT * FROM cust");
         Cursor cursor = db.query("cust",null,null,null,null,null,null);
+
+        while (cursor.moveToNext()){
+            String id = cursor.getString(0);
+            String cname = cursor.getString(1);
+            String birthday = cursor.getString(2);
+            String tel = cursor.getString(3);
+            textView.setText(id +":"+ cname + ":" + birthday + ":" + tel + "\n");
+        }
 
     }
 
