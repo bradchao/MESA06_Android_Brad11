@@ -39,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         db.delete("cust","id = ? AND cname = ?", new String[]{"3","Brad"});
         query(null);
     }
+
+    public void update(View v){
+        ContentValues data = new ContentValues();
+        data.put("cname", "Mary");
+        data.put("birthday", "2000-01-08");
+        data.put("tel", "321");
+        db.update("cust", data, "id = ?", new String[]{"4"});
+        query(null);
+    }
+
     public void query(View v){
         textView.setText("");
         // SELECT * FROM cust
